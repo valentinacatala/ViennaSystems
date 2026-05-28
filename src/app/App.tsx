@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, useScroll } from 'motion/react';
-import { Menu, X, Mail, Phone, MapPin, Code, Palette, Smartphone, Globe, Sun, Moon, Zap, TrendingUp, Star, Instagram, Search, Shield, Target, BarChart3, Database, Cloud, Users } from 'lucide-react';
+import { Menu, X, Mail, Phone, MapPin, Code, Palette, Smartphone, Globe, Sun, Moon, Zap, TrendingUp, Star, Instagram, Search, Shield, Target, BarChart3, Database, Cloud, Users, Linkedin } from 'lucide-react';
 import logoPrincipal from '../imports/Logo_Principal.png';
 import iconoPrincipal from '../imports/Icono_Principal.png';
 import whatsappIcon from '../imports/whatsapp.png';
@@ -1467,6 +1467,7 @@ export default function App() {
                   {[
                     { icon: <Mail className="w-6 h-6" />, titulo: "Email", texto: "viennasystemscba@gmail.com", href: "mailto:viennasystemscba@gmail.com" },
                     { icon: <Phone className="w-6 h-6" />, titulo: "Teléfono", texto: "+54 9 351 755 4706", href: "tel:+5493517554706" },
+                    { icon: <Linkedin className="w-6 h-6" />, titulo: "LinkedIn", texto: "Vienna Systems", href: "https://www.linkedin.com/in/vienna-systems" },
                     { icon: <Instagram className="w-6 h-6" />, titulo: "Instagram", texto: "@vienna.systems", href: "https://instagram.com/vienna.systems" },
                     { icon: <MapPin className="w-6 h-6" />, titulo: "Ubicación", texto: "Cordoba Capital Argentina", href: "#" }
                   ].map((item, index) => (
@@ -1585,6 +1586,17 @@ export default function App() {
                 >
                   <Instagram className="w-4 h-4" />
                   @vienna.systems
+                </motion.a>
+                <motion.a
+                  href="https://www.linkedin.com/in/vienna-systems"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-sm text-primary hover:bg-primary/10 transition-colors"
+                >
+                  <Linkedin className="w-4 h-4" />
+                  LinkedIn
                 </motion.a>
               </div>
             </div>
