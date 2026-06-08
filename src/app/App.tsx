@@ -1299,7 +1299,7 @@ export default function App() {
               },
               {
                 pregunta: "¿Pueden trabajar con mi diseño existente?",
-                respuesta: "¡Claro! Si ya tienes un diseño (en Figma, Adobe XD, o incluso bocetos en papel), podemos implementarlo fielmente. También podemos crear el diseño desde cero si lo prefieres."
+                respuesta: "¡Claro! Si ya tienes un diseño en Adobe XD, Sketch o incluso bocetos en papel, podemos implementarlo fielmente. También podemos crear el diseño desde cero si lo prefieres."
               }
             ].map((faq, index) => (
               <motion.div
