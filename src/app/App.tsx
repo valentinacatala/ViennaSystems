@@ -689,7 +689,7 @@ export default function App() {
               className="cursor-pointer"
               onClick={() => scrollToSection('inicio')}
             >
-              <img src={iconoPrincipal} alt="Vienna Systems" className="h-20 drop-shadow-lg" />
+              <img src={logoPrincipal} alt="Vienna Systems" className="h-28 drop-shadow-lg" />
             </motion.div>
 
             {/* Desktop Navigation */}
