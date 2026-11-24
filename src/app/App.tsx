@@ -1,12 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, useScroll } from 'motion/react';
 import { Menu, X, Mail, Phone, MapPin, Code, Palette, Smartphone, Globe, Sun, Moon, Zap, TrendingUp, Star, Instagram, Search, Shield, Target, BarChart3, Database, Cloud, Users } from 'lucide-react';
-import logoPrincipal from '../imports/Logo_Principal.png';
 import iconoPrincipal from '../imports/Icono_Principal.png';
 import whatsappIcon from '../imports/whatsapp.png';
 import consultorioImg from '../imports/consultorio.jpeg';
 import depositoImg from '../imports/deposito.jpeg';
 import tallerImg from '../imports/taller.jpg';
+import cacImg from '../imports/cac.jpeg';
+import club10Img from '../imports/club10.png';
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -107,7 +108,6 @@ export default function App() {
       categoria: "Landing Page",
       descripcion: "Sitio web profesional para clínica odontológica con presentación de servicios.",
       imagen: consultorioImg,
-      tags: ["React", "TypeScript", "Responsive"],
       link: "https://odontologiamicamerlo.netlify.app/"
     },
     {
@@ -115,7 +115,6 @@ export default function App() {
       categoria: "Landing Page",
       descripcion: "Presencia digital profesional para distribuidora mayorista.",
       imagen: depositoImg,
-      tags: ["HTML", "CSS", "JavaScript"],
       link: "https://distribuidoragaitan.netlify.app/"
     },
     {
@@ -123,8 +122,23 @@ export default function App() {
       categoria: "Landing Page",
       descripcion: "Sitio web institucional para taller especializado en refrigeración automotor.",
       imagen: tallerImg,
-      tags: ["HTML", "CSS", "JavaScript"],
       link: "https://radiadorescampanella.netlify.app/"
+    },
+    {
+      titulo: "Comercial Avícola Córdoba",
+      categoria: "Landing Page",
+      descripcion: "Sitio web para un mayorista de huevos y productos de almacén en Córdoba Capital.",
+      imagen: cacImg,
+      estiloImagen: "object-cover object-[center_45%]",
+      link: "https://cacsas.com.ar/"
+    },
+    {
+      titulo: "Club 10",
+      categoria: "Landing Page",
+      descripcion: "Sitio web para un instituto de inglés en La Calera, Córdoba, con clases en grupos reducidos.",
+      imagen: club10Img,
+      estiloImagen: "object-contain bg-[#162039]",
+      link: "https://club10-calera.netlify.app/"
     }
   ];
 
@@ -689,7 +703,7 @@ export default function App() {
               className="cursor-pointer"
               onClick={() => scrollToSection('inicio')}
             >
-              <img src={logoPrincipal} alt="Vienna Systems" className="h-28 drop-shadow-lg" />
+              <img src="/logo-vienna-systems.png" alt="Vienna Systems" className="h-28 drop-shadow-lg" />
             </motion.div>
 
             {/* Desktop Navigation */}
@@ -800,7 +814,7 @@ export default function App() {
                 transition={{ delay: 0.1 }}
                 className="inline-block mb-4 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm backdrop-blur-sm border border-primary/20"
               >
-                Desarrollo Web Freelance
+                Vienna Systems
               </motion.div>
 
               <motion.h1
@@ -809,7 +823,7 @@ export default function App() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                Transformamos{' '}
+                Diseño y{' '}
                 <motion.span
                   className="text-primary inline-block"
                   animate={{
@@ -824,13 +838,13 @@ export default function App() {
                     backgroundClip: 'text',
                   }}
                 >
-                  ideas
+                  desarrollo web
                 </motion.span> en{' '}
                 <motion.span
                   className="relative inline-block"
                   whileHover={{ scale: 1.05 }}
                 >
-                  <span className="text-primary">realidad digital</span>
+                  <span className="text-primary">Córdoba</span>
                   <motion.span
                     className="absolute -bottom-2 left-0 right-0 h-3 bg-primary/20 -z-10"
                     initial={{ scaleX: 0 }}
@@ -846,8 +860,7 @@ export default function App() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                Somos <strong className="text-foreground">Vienna Systems</strong>, un equipo freelance apasionado por crear soluciones web
-                únicas y efectivas para tu negocio.
+                Creamos <strong className="text-foreground">páginas web, landing pages y sistemas a medida</strong> para tu negocio.
               </motion.p>
 
               <motion.div
@@ -1192,14 +1205,16 @@ export default function App() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {proyectos.map((proyecto, index) => (
-              <motion.div
+              <motion.a
                 key={proyecto.titulo}
+                href={proyecto.link}
+                target="_blank"
+                rel="noopener noreferrer"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`group ${proyecto.link ? 'cursor-pointer' : ''}`}
-                onClick={() => proyecto.link && window.open(proyecto.link, '_blank')}
+                className="group block rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
               >
                 <div className="relative overflow-hidden rounded-2xl shadow-xl bg-card border border-border">
                   <div className="relative overflow-hidden h-64">
@@ -1210,22 +1225,15 @@ export default function App() {
                     >
                       <img
                         src={proyecto.imagen}
-                        alt={proyecto.titulo}
-                        className="w-full h-full object-cover"
+                        alt=""
+                        className={`w-full h-full ${proyecto.estiloImagen ?? 'object-cover'}`}
                       />
                     </motion.div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/60 to-transparent opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-300">
+                      <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 group-focus-visible:translate-y-0 transition-transform duration-300">
                         <p className="text-sm mb-2 opacity-90">{proyecto.categoria}</p>
                         <h3 className="text-xl mb-2">{proyecto.titulo}</h3>
-                        <p className="text-sm opacity-90 mb-3">{proyecto.descripcion}</p>
-                        <div className="flex flex-wrap gap-2">
-                          {proyecto.tags.map((tag) => (
-                            <span key={tag} className="text-xs px-2 py-1 bg-white/20 rounded-full backdrop-blur-sm">
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
+                        <p className="text-sm opacity-90">{proyecto.descripcion}</p>
                       </div>
                     </div>
                   </div>
@@ -1234,7 +1242,7 @@ export default function App() {
                     <h3 className="text-lg">{proyecto.titulo}</h3>
                   </div>
                 </div>
-              </motion.div>
+              </motion.a>
             ))}
           </div>
         </div>
@@ -1547,7 +1555,7 @@ export default function App() {
             <div>
               <motion.div whileHover={{ scale: 1.05 }}>
                 <img
-                  src={logoPrincipal}
+                  src="/logo-vienna-systems.png"
                   alt="Vienna Systems"
                   className="h-10 mb-4"
                 />
